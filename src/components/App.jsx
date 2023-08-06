@@ -1,29 +1,30 @@
 // import { Droppable } from "react-beautiful-dnd";
-import { Draggable } from "react-beautiful-dnd";
-import { DragDropContext } from "react-beautiful-dnd";
-import React from 'react';
+// import { Draggable } from "react-beautiful-dnd";
+// import { DragDropContext } from "react-beautiful-dnd";
+import React, { useState } from 'react';
 
-import { Card } from "./Card";
-import { StrictModeDroppable } from './droppableStrick';
+// import { Card } from "./Card";
+// import { StrictModeDroppable } from './droppableStrick';
+import { Board } from "./Board";
 
 const cards = [
   {
-    id: '0123',
+    id: 'id-0',
     name: 'Andrii',
     position: 0,
   },
   {
-    id: '131231',
+    id: 'id-1',
     name: 'Oleh',
     position: 1,
   },
   {
-    id: '2123123',
+    id: 'id-2',
     name: 'Anatolii',
     position: 2,
   },
   {
-    id: '3123213',
+    id: 'id-3',
     name: 'Max',
     position: 3,
   },
@@ -31,6 +32,9 @@ const cards = [
 
 
 export const App = () => {
+
+  const [state, setState] = useState(cards);
+  
   return (
     <div
       style={{
@@ -42,16 +46,21 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      <DragDropContext >
-        <StrictModeDroppable droppableId="droppable-1">
+      <Board state={state} setState={setState}/>
+      {/* <DragDropContext
+        onDragStart={onDragStart}
+        onDragEnd={onDragEnd}
+        onDragUpdate={onDragUpdate}
+      >
+        <StrictModeDroppable droppableId="droppable-1" >
           {(provided, snapshot) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
-                {cards.map((el) => {
+                {state.map((el) => {
                   return (
-                    <Draggable key={el.id} draggableId={el.id} index={el.position}>
+                    <Draggable key={el.id} draggableId={el.id} index={el.position} >
                       {(provided, snapshot) => (
                           <div
                           ref={provided.innerRef}
@@ -70,34 +79,7 @@ export const App = () => {
               </div>
             )}
         </StrictModeDroppable>
-          {/* <Droppable droppableId="droppable-1">
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {cards.map((el) => {
-                  return (
-                    <Draggable key={el.id} draggableId={el.id} index={el.position}>
-                      {(provided, snapshot) => (
-                          <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="card"
-                          >
-                            <Card draggableId={el.id}  name={el.name} />
-                          </div>
-                      )}
-                    </Draggable>
-                    
-                  )})
-                }
-                {provided.placeholder}
-              </div>
-            )}
-        </Droppable> */}
-      </DragDropContext>
+      </DragDropContext> */}
     </div>
 
   );
