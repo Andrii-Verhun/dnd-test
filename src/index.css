@@ -17,13 +17,13 @@ code {
 
 .card {
   width: 400px;
-  height: 50px;
+  /* height: 50px; */
   background-color: gray;
   border: 1px solid;  
   margin: 5px;
 }
 
-h4 {
+h4, p {
   margin: 0;
     padding: 0;
 }

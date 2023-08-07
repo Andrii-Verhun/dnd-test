@@ -1,7 +1,10 @@
 // import { Draggable } from "react-beautiful-dnd";
 
-export const Card = ({name, id, pos}) => {
+export const Card = ({name, index}) => {
     return (
-        <h4>{name}</h4>
+        <div>
+            <p>{index + 1}</p>
+            <h4>{name}</h4>
+        </div>
     )
 }

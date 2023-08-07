@@ -5,67 +5,49 @@ import { Card } from "./Card";
 import { StrictModeDroppable } from './droppableStrick';
 
 export const Board = ({ state, setState }) => {
-    const cards = state;
-
-    const isMove = (id, otkuda, kuda) => {
-    const dragElem = cards.findIndex((el) => el.id === id);
-    const otherElem = cards.findIndex((el) => el.position === kuda);
-
-
-    cards[dragElem].position = kuda;
-    cards[otherElem].position = otkuda;
-
-    console.log(cards);
-
-    setState(cards);
-
-    // console.log('dragelem:', dragElem, 'otherelem:', otherElem);
-
-  }
-  
-
-  const onDragStart = (evt) => {
-    // console.log(1, evt);
-    }
-    
   const onDragEnd = (evt) => {
-    // console.log(2, evt);
-    const id = evt.draggableId;
-    const otkuda = evt.source.index;
-    const kuda = evt.destination.index;
+    const { destination, source, reason } = evt;
 
-    isMove(id, otkuda, kuda);
+    if (!destination || reason === "CANCEL") return;
+    if (destination.droppableId === source.droppableId && destination.index === source.index) {
+      return;
+    };
 
+    const users = Object.assign([], state);
+    const droppedUser = state[source.index];
+    users.splice(source.index, 1);
+    users.splice(destination.index, 0, droppedUser);
 
+    setState(users);
+  };
 
-  }
-  const onDragUpdate = (evt) => {
-    console.log(3, evt);
-  }
+  // const onDragStart = (evt) => {
+  // };
+    
+  // const onDragUpdate = (evt) => {
+  // };
 
     return (
-              <DragDropContext
-        onDragStart={onDragStart}
+      <DragDropContext
         onDragEnd={onDragEnd}
-        onDragUpdate={onDragUpdate}
       >
         <StrictModeDroppable droppableId="droppable-1" >
-          {(provided, snapshot) => (
+          {(provided) => (
               <div
                 ref={provided.innerRef}
                 {...provided.droppableProps}
               >
-                {state.map((el) => {
+                {state.map((el, index) => {
                   return (
-                    <Draggable key={el.id} draggableId={el.id} index={el.position} >
-                      {(provided, snapshot) => (
+                    <Draggable key={el.id} draggableId={el.id} index={index} >
+                      {(provided) => (
                           <div
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
                           className="card"
                           >
-                            <Card draggableId={el.id}  name={el.name} />
+                            <Card name={el.name} index={index} />
                           </div>
                       )}
                     </Draggable>
@@ -76,33 +58,6 @@ export const Board = ({ state, setState }) => {
               </div>
             )}
         </StrictModeDroppable>
-          {/* <Droppable droppableId="droppable-1">
-            {(provided, snapshot) => (
-              <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {cards.map((el) => {
-                  return (
-                    <Draggable key={el.id} draggableId={el.id} index={el.position}>
-                      {(provided, snapshot) => (
-                          <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="card"
-                          >
-                            <Card draggableId={el.id}  name={el.name} />
-                          </div>
-                      )}
-                    </Draggable>
-                    
-                  )})
-                }
-                {provided.placeholder}
-              </div>
-            )}
-        </Droppable> */}
       </DragDropContext>
     )
 }
