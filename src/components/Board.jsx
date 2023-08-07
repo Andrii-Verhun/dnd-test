@@ -1,11 +1,7 @@
-import {
-  DragDropContext,
-  // Droppable,
-  Draggable
-} from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 
-import { Card } from "./Card";
-import { StrictModeDroppable } from './droppableStrick';
+import { UserList } from "./UserList";
+
 
 export const Board = ({ state, setState }) => {
   const onDragEnd = (evt) => {
@@ -28,35 +24,7 @@ export const Board = ({ state, setState }) => {
       <DragDropContext
         onDragEnd={onDragEnd}
       >
-        {/* <Droppable droppableId="droppable-1" > */}
-        <StrictModeDroppable droppableId="droppable-1" >
-          {(provided) => (
-              <div
-                ref={provided.innerRef}
-                {...provided.droppableProps}
-              >
-                {state.map((el, index) => {
-                  return (
-                    <Draggable key={el.id} draggableId={el.id} index={index} >
-                      {(provided) => (
-                          <div
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                          className="card"
-                          >
-                            <Card name={el.name} index={index} />
-                          </div>
-                      )}
-                    </Draggable>
-                    
-                  )})
-                }
-                {provided.placeholder}
-              </div>
-            )}
-        </StrictModeDroppable>
-        {/* </Droppable> */}
+        <UserList users={state}/>
       </DragDropContext>
     )
 }
