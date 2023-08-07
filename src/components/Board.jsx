@@ -1,7 +1,7 @@
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { Card } from "./Card";
-import { StrictModeDroppable } from './droppableStrick';
+// import { StrictModeDroppable } from './droppableStrick';
 
 export const Board = ({ state, setState }) => {
   const onDragEnd = (evt) => {
