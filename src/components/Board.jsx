@@ -40,7 +40,7 @@ export const Board = ({ state, setState }) => {
 
   }
   const onDragUpdate = (evt) => {
-    // console.log(3, evt);
+    console.log(3, evt);
   }
 
     return (
