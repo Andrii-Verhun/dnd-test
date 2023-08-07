@@ -20,11 +20,11 @@ export const Board = ({ state, setState }) => {
     setState(users);
   };
 
-    return (
-      <DragDropContext
-        onDragEnd={onDragEnd}
-      >
-        <UserList users={state}/>
-      </DragDropContext>
-    )
-}
+  return (
+    <DragDropContext
+      onDragEnd={onDragEnd}
+    >
+      <UserList users={state} />
+    </DragDropContext>
+  );
+};

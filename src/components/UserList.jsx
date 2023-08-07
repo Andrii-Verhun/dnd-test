@@ -1,7 +1,7 @@
 import { StrictModeDroppable } from './DroppableStrick';
 import { Card } from './Card';
 
-export const UserList = ({users}) => {
+export const UserList = ({ users }) => {
     return (
         <StrictModeDroppable droppableId='dp-1'>
             {(provided) => (
@@ -12,9 +12,9 @@ export const UserList = ({users}) => {
                     {users.map((el, index) => (
                         <Card key={el.id} el={el} index={index} />
                     ))}
-                {provided.placeholder}
+                    {provided.placeholder}
                 </div>
             )}
         </StrictModeDroppable>
-    )
-}
+    );
+};

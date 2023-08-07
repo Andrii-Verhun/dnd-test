@@ -1,6 +1,6 @@
 import { Draggable } from "react-beautiful-dnd";
 
-export const Card = ({el, index}) => {
+export const Card = ({ el, index }) => {
     return (
         <Draggable draggableId={el.id} index={index}>
             {(provided) => (
@@ -15,5 +15,5 @@ export const Card = ({el, index}) => {
                 </div>
             )}
         </Draggable>
-    )
-}
+    );
+};
