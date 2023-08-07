@@ -1,5 +1,4 @@
-import { Draggable } from "react-beautiful-dnd";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 import { Card } from "./Card";
 import { StrictModeDroppable } from './droppableStrick';
@@ -31,7 +30,8 @@ export const Board = ({ state, setState }) => {
       <DragDropContext
         onDragEnd={onDragEnd}
       >
-        <StrictModeDroppable droppableId="droppable-1" >
+        <Droppable droppableId="droppable-1" >
+        {/* <StrictModeDroppable droppableId="droppable-1" > */}
           {(provided) => (
               <div
                 ref={provided.innerRef}
@@ -57,7 +57,8 @@ export const Board = ({ state, setState }) => {
                 {provided.placeholder}
               </div>
             )}
-        </StrictModeDroppable>
+        {/* </StrictModeDroppable> */}
+        </Droppable>
       </DragDropContext>
     )
 }
