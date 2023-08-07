@@ -1,4 +1,4 @@
-import { StrictModeDroppable } from './DroppableStrick';
+import { StrictModeDroppable } from './StrictModeDroppable';
 import { Card } from './Card';
 
 export const UserList = ({ users }) => {
