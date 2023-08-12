@@ -6,22 +6,18 @@ const cards = [
   {
     id: 'id-0',
     name: 'Andrii',
-    position: 0,
   },
   {
     id: 'id-1',
     name: 'Oleh',
-    position: 1,
   },
   {
     id: 'id-2',
     name: 'Anatolii',
-    position: 2,
   },
   {
     id: 'id-3',
     name: 'Max',
-    position: 3,
   },
 ]
 
