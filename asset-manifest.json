@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/dnd-test/static/css/main.817e9ede.css",
-    "main.js": "/dnd-test/static/js/main.de94a9db.js",
+    "main.js": "/dnd-test/static/js/main.ab6547c2.js",
     "index.html": "/dnd-test/index.html",
     "main.817e9ede.css.map": "/dnd-test/static/css/main.817e9ede.css.map",
-    "main.de94a9db.js.map": "/dnd-test/static/js/main.de94a9db.js.map"
+    "main.ab6547c2.js.map": "/dnd-test/static/js/main.ab6547c2.js.map"
   },
   "entrypoints": [
     "static/css/main.817e9ede.css",
-    "static/js/main.de94a9db.js"
+    "static/js/main.ab6547c2.js"
   ]
 }
