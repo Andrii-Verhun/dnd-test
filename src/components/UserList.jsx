@@ -1,9 +1,9 @@
 import { StrictModeDroppable } from './StrictModeDroppable';
 import { Card } from './Card';
 
-export const UserList = ({ users }) => {
+export const UserList = ({ users, id }) => {
     return (
-        <StrictModeDroppable droppableId='dp-1'>
+        <StrictModeDroppable droppableId={id}>
             {(provided) => (
                 <div
                     ref={provided.innerRef}
